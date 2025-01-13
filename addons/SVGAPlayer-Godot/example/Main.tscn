@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://addons/SVGAPlayer-Godot/player/svga_player.gd" type="Script" id=1]
+[ext_resource path="res://addons/SVGAPlayer-Godot/example/fonts/font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://addons/SVGAPlayer-Godot/example/Main.gd" type="Script" id=3]
+
+[sub_resource type="Theme" id=1]
+default_font = ExtResource( 2 )
+OptionButton/fonts/font = ExtResource( 2 )
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="SVGAPlayer" type="Node2D" parent="."]
+script = ExtResource( 1 )
+
+[node name="OptionButton" type="OptionButton" parent="."]
+margin_right = 180.0
+margin_bottom = 33.0
+theme = SubResource( 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "默认"
+items = [ "默认", null, false, 0, null ]
+selected = 0
+
+[node name="Load" type="Button" parent="."]
+margin_left = 7.0
+margin_top = 47.0
+margin_right = 55.0
+margin_bottom = 80.0
+custom_fonts/font = ExtResource( 2 )
+text = "加载"
+
+[node name="Play" type="Button" parent="."]
+margin_left = 7.0
+margin_top = 93.0
+margin_right = 55.0
+margin_bottom = 126.0
+custom_fonts/font = ExtResource( 2 )
+text = "播放"
+
+[node name="Stop" type="Button" parent="."]
+margin_left = 7.0
+margin_top = 138.0
+margin_right = 55.0
+margin_bottom = 171.0
+custom_fonts/font = ExtResource( 2 )
+text = "暂停"
+
+[node name="Process" type="Button" parent="."]
+margin_left = 7.0
+margin_top = 184.0
+margin_right = 55.0
+margin_bottom = 217.0
+custom_fonts/font = ExtResource( 2 )
+text = "步进"
+
+[node name="VideoPlayer" type="VideoPlayer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[connection signal="pressed" from="Load" to="." method="_on_Load_pressed"]
+[connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="Stop" to="." method="_on_Stop_pressed"]
+[connection signal="pressed" from="Process" to="." method="_on_Process_pressed"]
